@@ -1,0 +1,105 @@
+
+/* .SinUp-container{
+    display: flex;
+    
+   
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    }
+    .sinup-content{
+        display: flex;
+        flex-wrap: wrap;
+    width: 100%;
+    
+        flex-direction: column;
+        justify-content: center;
+    align-items: center;
+       
+    }
+    .Sinup{
+        display: flex;
+        flex-wrap: wrap;
+    width: 100%;
+    
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+
+    input[type='text']{
+        width: 50px;
+        height: 50px;
+    } */
+
+
+    .SinUp-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .sinup-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px 0 rgba(14, 30, 37, .16);
+        padding: 50px 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+    }
+
+    .Sinup{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 34px;
+    }
+
+
+    input[type='text']{
+        width: 200px;
+        height: 10px;
+        margin-top: 5px;
+    } 
+
+    p{
+        position: relative;
+        left: -80px;
+    }
+
+    .navbar-content{
+display: flex;
+justify-content: end;
+align-items: end;
+margin:30px 50px;
+    }
+    .navbar-content a{
+        text-decoration: none;
+        color: #fff;
+        margin-left: 20px;
+        border: 1px solid #002884;
+        background-color: #002884;
+        width: 80px;
+        display: inline;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 15px;
+        margin-top: 5px;
+        padding: 5px 0px;
+    }
+
+    .button{
+        width: 100%;
+        margin-top: 20px;
+        font-size: 15px;
+        height: 25px;
+        border-radius: 8px;
+        background-color: #002884;
+        color: #fff;
+        border: none;
+    }

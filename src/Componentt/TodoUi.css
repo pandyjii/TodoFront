@@ -1,0 +1,103 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+display: grid;
+grid-template-columns: repeat(1fr,1fr,1fr);
+padding: 20px;
+}
+
+.todoUi{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+   /* padding: 20px; */
+}
+
+.formUi{
+    margin-top: 40px;
+    margin-right: 55px;
+   
+}
+
+input[type="text"]{
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 10px;
+    
+}
+
+.todobutton{
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.showtodo-container{
+display: flex;
+flex-wrap: wrap;
+width: 100%;
+justify-content: center;
+align-items: center;
+justify-content: space-between;
+
+}
+
+.showtodo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+align-items: center;
+padding: 10px;
+
+}
+
+.shotodo-icon{
+    display: flex;
+    margin-left: 220px;
+
+}
+
+
+
+.firstname{
+    margin-right: 40px;
+    margin-left: 50px;
+}
+
+.lastname{
+margin-left: 110px;
+}
+
+
+p{
+    margin-left: 20px;
+}
+
+
+.search{
+    position: absolute;
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+
+
+
