@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 export default function Navbar(){
 //    const[value,setValue]=useState('')
     const[validate,useValidate]=useState(false)
-    let auth=JSON.parse(localStorage.getItem('user'))
+    let auth=JSON.parse(localStorage.getItem('auth'))
     console.log(auth)
 
   const Navigate=useNavigate();
 
     function handleSinOut(){
-        console.log("hii")
+       
         localStorage.clear()
         Navigate('/login')
        

@@ -8,8 +8,8 @@ export default function TodoUi() {
     const [lastName, setLastName] = useState();
     const [values, setvalues] = useState([])
     const Navigate = useNavigate();
-   const[editable,setEditable]=useState();
-
+    const [editable, setEditable] = useState();
+    let auth = JSON.parse(localStorage.getItem('auth'));
     useEffect(() => {
         getTodoDetails();
     }, [])
@@ -18,7 +18,7 @@ export default function TodoUi() {
     async function handleinputSubmit(e) {
 
         e.preventDefault();
-        let responce = await fetch('https://todo-5v24.vercel.app/', {
+        let responce = await fetch('http://localhost:8080/', {
             method: 'POST',
             body: JSON.stringify({ firstName, lastName }),
             headers: {
@@ -41,7 +41,7 @@ export default function TodoUi() {
 
 
     async function getTodoDetails() {
-        let responce = await fetch('https://todo-5v24.vercel.app/');
+        let responce = await fetch('http://localhost:8080/');
 
         responce = await responce.json();
         if (responce) {
@@ -52,7 +52,7 @@ export default function TodoUi() {
     }
 
     async function handleDelete(id) {
-        let responce = await fetch(`https://todo-5v24.vercel.app/${id}`, {
+        let responce = await fetch(`http://localhost:8080/${id}`, {
             method: 'DELETE'
         });
         responce = await responce.json();
@@ -68,7 +68,7 @@ export default function TodoUi() {
     async function handleChange(e) {
         getTodoDetails();
         let key = e.target.value;
-        let responce = await fetch(`https://todo-5v24.vercel.app/search/${key}`);
+        let responce = await fetch(`http://localhost:8080/search/${key}`);
         responce = await responce.json();
 
         console.log(responce);
@@ -81,14 +81,14 @@ export default function TodoUi() {
         }
     }
 
-   
 
-   
 
-   
-   
 
-  
+
+
+
+
+
 
 
 
@@ -103,55 +103,65 @@ export default function TodoUi() {
     return (
 
         <>
-          <div className='search'>
-                <input type="text"  style={{width:"400px"}} className='search-input' placeholder='Search'  onChange={(e) => handleChange(e)} />
-              </div>    
-        <div className="container">
             
+            {
+                auth ?
+         <div className='search'>
+            <input type="text" style={{ width: "400px" }} className='search-input' placeholder='Search' onChange={(e) => handleChange(e)} />
+        </div>
+        :'' 
+            }
+
+<div className="container">
+    {
+        auth ?
             <div className="todoUi">
 
 
                 <h1>Todo App</h1>
 
-                <form className="formUi"  onSubmit={handleinputSubmit}>
-                    <input type="text" placeholder='FirstName' name='firstName'  value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                    <input type="text" placeholder='LastName' name='lastName'  value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                    
+                <form className="formUi" onSubmit={handleinputSubmit}>
+                    <input type="text" placeholder='FirstName' name='firstName' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <input type="text" placeholder='LastName' name='lastName' value={lastName} onChange={(e) => setLastName(e.target.value)} />
+
                     <button className='todobutton'  >Submit</button>
-                  
+
                 </form>
             </div>
+            : ''
+    }
 
 
-            {
-               
-                    values.map((item, index) => 
-                    
-                            <div className="showtodo" key={index} >
-                               
-                                <h4 className="firstname">{item.firstName}</h4>
-                                <h4 className="lastname">{item.lastName}</h4>
-                                <div className="shotodo-icon">
-                                    <Link to={'/edit/' + item._id}   > <p className="icons"><i class="fa-solid fa-pen"  ></i></p></Link>
-                                    <p><i class="fa-solid fa-trash" onClick={() => handleDelete(item._id)}></i></p>
-                                      
-                                </div>
-                                
-                            </div>
-                        
+    {
+        auth ?
+            values.map((item, index) =>
 
-                        
-                    
-                    )
+                <div className="showtodo" key={index} >
 
-                   
-            }
+                    <h4 className="firstname">{item.firstName}</h4>
+                    <h4 className="lastname">{item.lastName}</h4>
+                    <div className="shotodo-icon">
+                        <Link to={'/edit/' + item._id}   > <p className="icons"><i class="fa-solid fa-pen"  ></i></p></Link>
+                        <p><i class="fa-solid fa-trash" onClick={() => handleDelete(item._id)}></i></p>
+
+                    </div>
+
+                </div>
 
 
 
 
+            )
+            : ''
 
-        </div>
+    }
+
+
+
+
+
+</div>
+
 
 </>
 

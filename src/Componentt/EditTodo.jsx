@@ -3,8 +3,8 @@ import './Sinup.css'
 
 import { useState, useEffect } from 'react';
 export default function EditContent() {
-    const [firstName, setFirstName] = useState({});
-    const [lastName, setLastName] = useState({});
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
     const Navigate = useNavigate();
     const param = useParams();
 
@@ -16,7 +16,7 @@ export default function EditContent() {
     async function getProductlist() {
         console.log(param.id);
 
-        let responce = await fetch(`/product/${param.id}`)
+        let responce = await fetch(`http://localhost:8080/product/${param.id}`)
 
         responce = await responce.json();
 
@@ -31,7 +31,7 @@ export default function EditContent() {
 
     async function handleinputUpdate(e) {
         e.preventDefault();
-        let responce = await fetch(`https://todo-5v24.vercel.app/${param.id}`, {
+        let responce = await fetch(`http://localhost:8080/${param.id}`, {
             method: 'PUT',
             body: JSON.stringify({ firstName, lastName }),
             headers: {

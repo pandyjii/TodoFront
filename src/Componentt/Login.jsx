@@ -9,7 +9,7 @@ export default function Login() {
 
     async function handleSubmit(e) {
        e.preventDefault();
-       let responce= await fetch('https://todo-5v24.vercel.app/login',{
+       let responce= await fetch('http://localhost:8080/login',{
         method:'POST',
         body:JSON.stringify({email,password}),
         headers:{
@@ -19,8 +19,8 @@ export default function Login() {
 
        responce= await responce.json();
       console.log(responce);
-       if(responce){
-        localStorage.setItem('user',JSON.stringify(responce));
+       if(responce.auth){
+        localStorage.setItem('auth',JSON.stringify(responce.auth));
        
         Navigate('/')
        }
